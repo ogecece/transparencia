@@ -1,0 +1,4 @@
+# Python == 3.6.6
+
+## scraping libs
+scrapy == 1.5.1
