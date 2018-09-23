@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import os
+
 
 # Scrapy settings for transparencia project
 #
@@ -64,9 +66,13 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
+ITEM_PIPELINES = {
+    'scrapy.pipelines.files.FilesPipeline': 1,
 #    'transparencia.pipelines.TransparenciaPipeline': 300,
-#}
+}
+
+# Configure directory path to store downloaded files
+FILES_STORE = os.path.dirname(__file__) + '/files'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
