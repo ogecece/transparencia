@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+
+import datetime
+
 import scrapy
 
 
@@ -6,6 +9,7 @@ class PlanilhasSpider(scrapy.Spider):
     name = 'planilhas'
     allowed_domains = ['www.portaltransparencia.gov.br']
     start_urls = ['http://www.portaltransparencia.gov.br/download-de-dados/']
+    optional_args = ['all']
 
     def parse(self, response):
         yield scrapy.http.Request(
@@ -14,7 +18,12 @@ class PlanilhasSpider(scrapy.Spider):
         )
 
     def baixa_planilhas(self, response):
-        disponiveis = anos_meses(response)
+        if hasattr(self, 'all'):
+            disponiveis = anos_meses(response)
+        else:
+            hoje = datetime.date.today()
+            disponiveis = [(str(hoje.year), str(hoje.month))]
+
         for ano_mes in disponiveis:
             yield {'file_urls': [response.url + ''.join(ano_mes)]}
 
