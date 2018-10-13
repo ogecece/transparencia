@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+from dotenv import load_dotenv
 
 
 # Scrapy settings for transparencia project
@@ -16,6 +17,8 @@ BOT_NAME = 'transparencia'
 SPIDER_MODULES = ['transparencia.spiders']
 NEWSPIDER_MODULE = 'transparencia.spiders'
 
+# Load environment variables
+load_dotenv(os.path.dirname(__file__) + '/.env')
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'transparencia (+http://www.yourdomain.com)'
@@ -72,7 +75,9 @@ ITEM_PIPELINES = {
 }
 
 # Configure directory path to store downloaded files
-FILES_STORE = os.path.dirname(__file__) + '/files'
+# FILES_STORE = os.path.dirname(__file__) + '/files'
+FILES_STORE = 's3://giuliocc-transparencia/'
+FILES_EXPIRES = 0
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -94,3 +99,8 @@ FILES_STORE = os.path.dirname(__file__) + '/files'
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+
+# AWS Settings
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")

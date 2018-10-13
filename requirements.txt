@@ -2,3 +2,7 @@
 
 ## scraping libs
 scrapy == 1.5.1
+
+## misc
+python-dotenv == 0.9.1
+botocore == 1.12.23
