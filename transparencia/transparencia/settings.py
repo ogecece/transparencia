@@ -14,8 +14,8 @@ from dotenv import load_dotenv
 
 BOT_NAME = 'transparencia'
 
-SPIDER_MODULES = ['transparencia.spiders']
-NEWSPIDER_MODULE = 'transparencia.spiders'
+# SPIDER_MODULES = ['transparencia.spiders']
+# NEWSPIDER_MODULE = 'transparencia.spiders'
 
 # Load environment variables
 load_dotenv(os.path.dirname(__file__) + '/.env')
