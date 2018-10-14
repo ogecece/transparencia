@@ -9,5 +9,6 @@ from transparencia.transparencia.spiders.planilhas import PlanilhasSpider
 project_settings = Settings()
 project_settings.setmodule(settings)
 process = CrawlerProcess(project_settings)
+# process.crawl(PlanilhasSpider, all=True)
 process.crawl(PlanilhasSpider)
 process.start()
