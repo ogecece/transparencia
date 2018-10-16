@@ -3,6 +3,12 @@
 ## scraping libs
 scrapy == 1.5.1
 
+## plotting libs
+seaborn == 0.9.0
+matplotlib == 3.0.0
+
 ## misc
 python-dotenv == 0.9.1
 botocore == 1.12.23
+pandas == 0.23.4
+jupyter == 1.0.0
